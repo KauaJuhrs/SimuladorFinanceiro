@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> <i> Simulador financeiro  </i></h1>
+    <b><i>em média, quantos quilos de rosas você transporta por ano?</i></b> <br>
+    <input type="number" id="inp_quilosRosas"> <br>
+    <b><i>em média, qual o lucro bruto em cima de cada quilo de rosa?(sem considerar perda de produtos)</i></b> <br>
+    <input type="number" id="inp_lucroQuilo"> <br>
+    <button onclick="calcularFlores()">Calucular!</button><br>
+    <div style="width: 50%;" id="div_flores"></div>
+</body>
+</html>
+<script>
+    function calcularFlores(){
+        var quilos = Number(inp_quilosRosas.value)
+        var valorQuilos = Number(inp_lucroQuilo.value)
+        var lucroBrutoAno = quilos * valorQuilos
+        var lucroLiquidoAnoSem = lucroBrutoAno * 0.6
+        var lucroLiquidoAnoCom = lucroBrutoAno * 0.8
+        var diferenca = lucroLiquidoAnoCom - lucroLiquidoAnoSem
+
+        div_flores.innerHTML = `<br>fazendo os calculos, é possivel afirmar que atualmente o lucro da sua emrpesa gira entorno de <b>R$${lucroBrutoAno}</b>, porém, é sabido que cerca de <b>40%</b> das rosas transportadas por aí são degradadas por conta da falta de controle de temperatura e umidade durante o processo de deslocamento, ou seja, pode-se dizer que seu lucro liquido gira em torno de <b style="color: red;">R$${lucroLiquidoAnoSem}</b> <br>`
+        
+        div_flores.innerHTML += `<br> com nossa aplicação, é cabivel dizer que pelo menos <b>50%</b> dessa perda pode ser mitigada assumindo que será feito bom uso do sistema, ou seja, de <b>40%</b> para <b>20%</b> de perda apenas adotando o sistema para sua empresa, sendo assim, seu negócio pode chegar a uma margem de lucro de <b style="color: blue;">pelo menos R$${lucroLiquidoAnoCom} por ano</b>, uma diferença de <b>R$${diferenca}</b> em relação aos lucros sem a Save Flowers`
+    }
+</script>
